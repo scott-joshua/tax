@@ -27,7 +27,13 @@ exports.handler = (order, context, callback) => {
 
     taxRequest.line_items = [];
     order.Items.forEach(function(item){
-        taxRequest.line_items.push({quantity:item.RequestedQuantity, unit_price:item.TaxBase, product_tax_code:item.TaxCode})
+        let itemR = {quantity:item.RequestedQuantity, unit_price:item.TaxBase};
+
+        if(item.TaxCode){
+            itemR.product_tax_code = item.TaxCode;
+        }
+
+        taxRequest.line_items.push(itemR);
     });
 
     taxjar.taxForOrder(taxRequest).then(function(res) {
