@@ -5,6 +5,8 @@ let taxjar = require('taxjar')(process.env.TAXJAR_API_KEY);
 
 exports.handler = (order, context, callback) => {
 
+    let address = order.Shipping.ShippingParty[0].ShippingShippingAddress.Address;
+
     let taxRequest = {
        // from_country: process.env.WAREHOUSE_COUNTRY,
        // from_zip: process.env.WAREHOUSE_POSTAL_CODE,
@@ -14,11 +16,11 @@ exports.handler = (order, context, callback) => {
         from_country: "US",
         from_zip:84601,
         from_state: "UT",
-        to_street: order.Shipping.ShippingAddress.Address.Street1,
-        to_city: order.Shipping.ShippingAddress.Address.City,
-        to_country: order.Shipping.ShippingAddress.Address.CountryCode,
-        to_zip: order.Shipping.ShippingAddress.Address.PostalCode,
-        to_state: order.Shipping.ShippingAddress.Address.Region,
+        to_street: address.Street1,
+        to_city: address.City,
+        to_country: address.CountryCode,
+        to_zip: address.PostalCode,
+        to_state: address.Region,
         amount:order.OrderTotals.TaxBase,
         shipping: order.OrderTotals.Shipping,
     };
