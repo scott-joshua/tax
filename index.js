@@ -5,7 +5,7 @@ let taxjar = require('taxjar')(process.env.TAXJAR_API_KEY);
 
 exports.handler = (order, context, callback) => {
 
-    let address = order.Shipping.ShippingParty[0].ShippingShippingAddress.Address;
+    let address = order.Shipping.ShippingParty[0].ShippingAddress.Address;
 
     let taxRequest = {
        // from_country: process.env.WAREHOUSE_COUNTRY,

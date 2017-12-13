@@ -24,22 +24,24 @@
     }
   ],
   "Shipping": {
-    "ShippingAddress": {
-      "Name": "George Albert",
-      "Address": {
-        "Street1": "75 West Center St",
-        "Street2": null,
-        "City": "Provo",
-        "District": null,
-        "Region": "UT",
-        "PostalCode": "84601",
-        "CountryCode": "US"
-      },
-      "Contact": {
-        "email": "test@account.com",
-        "phone": "801.555.1000"
+    "ShippingParty": [{
+      "ShippingAddress": {
+        "Name": "George Albert",
+        "Address": {
+          "Street1": "75 West Center St",
+          "Street2": null,
+          "City": "Provo",
+          "District": null,
+          "Region": "UT",
+          "PostalCode": "84601",
+          "CountryCode": "US"
+        },
+        "Contact": {
+          "email": "test@account.com",
+          "phone": "801.555.1000"
+        }
       }
-    },
+    }],
     "ShippingOptions": [
       {
         "Price": 10.00,
