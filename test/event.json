@@ -1,0 +1,70 @@
+{
+  "CustomerID": "US80018003",
+  "CountryCode": "US",
+  "Items": [
+    {
+      "SKU": "01003440",
+      "RequestedQuantity": 1,
+      "TotalAvailableQuantity": 2129,
+      "Price": 16.4,
+      "PSV": 15.5,
+      "CV": 15.83,
+      "TaxBase": 30,
+      "TaxCode": 40020
+    },
+    {
+      "SKU": "01003901",
+      "RequestedQuantity": 2,
+      "TotalAvailableQuantity": 978,
+      "Price": 117,
+      "PSV": 110,
+      "CV": 112.91,
+      "TaxBase": 146,
+      "TaxCode": 40020
+    }
+  ],
+  "Shipping": {
+    "ShippingAddress": {
+      "Name": "George Albert",
+      "Address": {
+        "Street1": "75 West Center St",
+        "Street2": null,
+        "City": "Provo",
+        "District": null,
+        "Region": "UT",
+        "PostalCode": "84601",
+        "CountryCode": "US"
+      },
+      "Contact": {
+        "email": "test@account.com",
+        "phone": "801.555.1000"
+      }
+    },
+    "ShippingOptions": [
+      {
+        "Price": 10.00,
+        "Code": "2DAY"
+      },
+      {
+        "Price": 5.00,
+        "Code": "STD",
+        "Default": true,
+        "Qualifications": "order.total > 50.00"
+      }
+    ],
+    "ShippingMethod": {
+      "Price": 5.00,
+      "Code": "STD",
+      "Default": true,
+      "Qualifications": "order.total > 50.00"
+    }
+  },
+  "errors": [],
+  "OrderTotals": {
+    "TaxBase": 322,
+    "CV": 241.65,
+    "PSV": 235.5,
+    "ItemSubtotal": 250.4,
+    "Shipping": 5.00
+  }
+}

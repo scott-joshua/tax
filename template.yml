@@ -6,25 +6,21 @@ Transform:
 Parameters:
   ProjectId:
     Type: String
-    Description: AWS CodeStar projectID used to associate new resources to team members
+    Description: AWS Lambda Function THat wraps TAXJAT tax calculation
 
 Resources:
-  HelloWorld:
+  USTaxCalculation:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
       Runtime: nodejs4.3
+      Environment:
+              Variables:
+                TAXJAR_API_KEY: TAXJAR_API_KEY
+                WAREHOUSE_COUNTRY: WAREHOUSE_COUNTRY
+                WAREHOUSE_POSTAL_CODE: WAREHOUSE_POSTAL_CODE
+                WAREHOUSE_STATE: WAREHOUSE_STATE
       Role:
         Fn::ImportValue:
           !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
-      Events:
-        GetEvent:
-          Type: Api
-          Properties:
-            Path: /
-            Method: get
-        PostEvent:
-          Type: Api
-          Properties:
-            Path: /
-            Method: post
+
